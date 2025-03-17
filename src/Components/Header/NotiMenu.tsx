@@ -18,9 +18,9 @@ export const NotiMenu = () => {
             console.log(err)
         })
     }, [user])
-    const unread = (index: number) => {
+    const unread = (index: any) => {
         let notis = [...notifications]
-        notis = notis.filter((noti: any, i: number) => i !== index)
+        notis = notis.filter((i: number) => i !== index)
         setNotifications(notis)
         readNotification(notifications[index].id).then((res) => {
             console.log(res)

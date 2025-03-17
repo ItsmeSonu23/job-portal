@@ -108,8 +108,7 @@ export const ResetPassword = (props: any) => {
     const handleVerifyOtp = (otp: string) => {
         console.log(otp);
         verifyOtp(email, otp)
-            .then((res) => {
-                console.log(res);
+            .then(() => {
                 successNotification("OTP verified", "Enter new Password")
                 setVerified(true)
             }).catch((error) => {
