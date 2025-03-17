@@ -22,11 +22,14 @@ export const NotiMenu = () => {
         let notis = [...notifications]
         notis = notis.filter((i: number) => i !== index)
         setNotifications(notis)
-        readNotification(notifications[index].id).then((res) => {
-            console.log(res)
-        }).catch((err) => {
-            console.log(err)
-        })
+        const notificationId = notifications[index]?.id; // Safely access the id
+        if (notificationId) {
+            readNotification(notificationId).then((res) => {
+                console.log(res)
+            }).catch((err) => {
+                console.log(err)
+            });
+        }
     }
     return (
         <div>
