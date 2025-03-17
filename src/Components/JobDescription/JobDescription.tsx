@@ -95,7 +95,7 @@ export const JobDescription = (props: any) => {
     }, [props])
 
     const handleClose = () => {
-        postJob({ ...props, jobStatus: "CLOSED" }).then((res: any) => {
+        postJob({ ...props, jobStatus: "CLOSED" }).then(() => {
             successNotification("Job closed successfully", "Job closed successfully")
         }).catch((err: any) => {
             errorNotification("Error closing job", err.response.data.message)

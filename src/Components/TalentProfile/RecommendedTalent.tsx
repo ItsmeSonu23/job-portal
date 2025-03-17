@@ -1,7 +1,3 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import { getAllProfiles } from "../../Services/ProfileService"
-import { talents } from "../../Data/Data"
 import { TalentCard } from "../FindTalent/TalentCard"
 import { useParams } from "react-router-dom"
 /**

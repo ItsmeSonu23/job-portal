@@ -64,7 +64,6 @@ export const Info = () => {
     const matches = useMediaQuery(`(min-width: 475px)`)
     const dispatch = useDispatch()
     const [edit, setEdit] = useState(false)
-    const user = useSelector((state: any) => state.user)
     const profile = useSelector((state: any) => state.profile)
 
     /**

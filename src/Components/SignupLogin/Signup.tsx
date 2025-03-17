@@ -1,4 +1,4 @@
-import { Anchor, Button, Checkbox, Group, LoadingOverlay, PasswordInput, Radio, rem, TextInput } from "@mantine/core"
+import { Anchor, Button, Checkbox, LoadingOverlay, PasswordInput, Radio, rem, TextInput } from "@mantine/core"
 import { IconAt, IconLock} from "@tabler/icons-react"
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom"
@@ -111,7 +111,7 @@ export const Signup = () => {
 
         for (let key in data) {
             if (key === "accountType") continue;
-            if (key !== "confirmPassword") newFormError[key] = signupValidation(key, data[key]);
+            if (key !== "confirmPassword") newFormError[key] = signupValidation(key, data[key]) || "";
             else if (data[key] !== data["password"]) newFormError[key] = "Password do not match."
             if (newFormError[key]) valid = false
         }
@@ -120,11 +120,12 @@ export const Signup = () => {
 
         if (valid === true) {
             setLoading(true)
-            registerUser(data)
+            const { email, password, name } = data; // Destructure the required fields
+            registerUser({ email, password, name }) // Pass only the required fields
                 .then((res) => {
                     console.log(res)
                     setData(form)
-                    successNotification("Registered SuccessFully", 'Redirecting to login page...')
+                    successNotification("Registered Successfully", 'Redirecting to login page...')
                     setTimeout(() => {
                         setLoading(false)
                         navigate("/login")
@@ -133,7 +134,7 @@ export const Signup = () => {
                 .catch((error) => {
                     setLoading(false)
                     console.log(error)
-                    errorNotification("Registered Failed", error.response.data.errorMessage)
+                    errorNotification("Registration Failed", error.response.data.errorMessage)
                 })
         }
     }

@@ -184,7 +184,7 @@ export const ResetPassword = (props: any) => {
                         placeholder="*********"
                         onChange={(e) => {
                             setPassword(e.target.value);
-                            setPassError(signupValidation("password", e.target.value));
+                            setPassError(signupValidation("password", e.target.value) || "");
                         }}
                     />
 

@@ -7,10 +7,19 @@ import { useSelector } from "react-redux"
 import { getNotifications, readNotification } from "../../Services/NotiService"
 import { useNavigate } from "react-router-dom"
 export const NotiMenu = () => {
+
+    interface NotificationType {
+        id: string; // or number, depending on your data
+        action: string;
+        message: string;
+        route: string;
+    }
+
+
     const navigate = useNavigate()
     const [opened, setOpened] = useState(false)
     const user = useSelector((state: any) => state.user)
-    const [notifications, setNotifications] = useState([])
+    const [notifications, setNotifications] = useState<NotificationType[]>([])
     useEffect(() => {
         getNotifications(user.id).then((res) => {
             setNotifications(res)
@@ -20,7 +29,7 @@ export const NotiMenu = () => {
     }, [user])
     const unread = (index: any) => {
         let notis = [...notifications]
-        notis = notis.filter((i: number) => i !== index)
+        notis = notis.filter((i: NotificationType) => i !== index)
         setNotifications(notis)
         const notificationId = notifications[index]?.id; // Safely access the id
         if (notificationId) {

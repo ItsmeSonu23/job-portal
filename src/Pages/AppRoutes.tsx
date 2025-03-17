@@ -38,7 +38,7 @@
  */
 
 import { Divider } from "@mantine/core"
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom"
+import { BrowserRouter, Routes, Route} from "react-router-dom"
 import { Footer } from "../Components/Footer/Footer"
 import { Header } from "../Components/Header/Header"
 import { ApplyJobPage } from "./ApplyJobPage"
@@ -53,12 +53,9 @@ import { PostJobPage } from "./PostJobPage"
 import { ProfilePage } from "./ProfilePage"
 import { SignupPage } from "./SignupPage"
 import { TalentProfile } from "./TalentProfile"
-import { useSelector } from "react-redux"
 import { ProtectedRoute } from "../Services/ProtectedRoute"
 import { PublicRoute } from "../Services/PublicRout"    
 export const AppRoutes = () => {
-    // Get current user from Redux store
-    const user = useSelector((state:any)=>state.user)
 
     return (
         <BrowserRouter>

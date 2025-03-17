@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 interface PublicRouteProps {
-    children: JSX.Element;
+    children: React.ReactNode;
 }
 
 export const PublicRoute :React.FC<PublicRouteProps>=({children}) => {

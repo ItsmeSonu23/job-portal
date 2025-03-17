@@ -46,7 +46,7 @@
  * <Route path="/talent-profile" element={<TalentProfile />} />
  */
 
-import { Button, Divider } from "@mantine/core"
+import { Button } from "@mantine/core"
 import { IconArrowLeft } from "@tabler/icons-react"
 import { useNavigate } from "react-router-dom"
 import { RecommendedTalent } from "../Components/TalentProfile/RecommendedTalent"

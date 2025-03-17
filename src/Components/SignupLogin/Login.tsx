@@ -97,7 +97,7 @@ export const Login = () => {
     const handleSubmit = async () => {
         let valid = true, newFormError: { [key: string]: string } = {};
         for (let key in data) {
-            newFormError[key] = loginValidation(key, data[key]);
+            newFormError[key] = loginValidation(key, data[key]) || "";
             if (newFormError[key]) valid = false;
         }
         setFormError(newFormError);
@@ -115,7 +115,7 @@ export const Login = () => {
                 }, 4000);
             } catch (error) {
                 setLoading(false);
-                const errorMessage = (error.response?.data?.errorMessage || "Login Failed");
+                const errorMessage = (error as any).response?.data?.errorMessage || "Login Failed";
                 errorNotification("Login Failed", errorMessage);
             }
         }
