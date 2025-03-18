@@ -9,7 +9,6 @@
  * 
  * Imports required Mantine component styles and configures providers
  * to wrap the main application routes.
- * 
  * @component
  * @example
  * // In index.tsx/main.tsx
