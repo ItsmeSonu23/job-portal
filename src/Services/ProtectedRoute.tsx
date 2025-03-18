@@ -8,13 +8,16 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, allowedRoles }) => {
-   const token = useSelector((state: any) => state.jwt)
-   if (!token) {
-      return <Navigate to="/login" />
+   const token = useSelector((state: any) => state.jwt);
+   const isLoggedIn = !!token; // Check if the user is logged in
+   const decodedToken: any = token ? jwtDecode(token) : null;
+
+   if (!isLoggedIn) {
+      return <Navigate to="/login" />;
    }
-   const decodedToken: any = jwtDecode(token)
-   if (allowedRoles && !allowedRoles.includes(decodedToken.applicantType)) {
-      return <Navigate to="/" />
+
+   if (allowedRoles && decodedToken && !allowedRoles.includes(decodedToken.applicantType)) {
+      return <Navigate to="/" />;
    }
    return children
 }
