@@ -63,15 +63,15 @@ export const AppRoutes = () => {
                 <Header />
                 <Divider size="sm" mx="md" />
                 <Routes>
-                    <Route path='/find-jobs' element={<FindJobs />} />
+                    <Route path='/find-jobs' element={<PublicRoute><FindJobs /></PublicRoute>} />
 
-                    <Route path='/find-talent' element={<FindTalentPage />} />
+                    <Route path='/find-talent' element={<PublicRoute><FindTalentPage /></PublicRoute>} />
 
-                    <Route path='/company/:name' element={<CompanyPage />} />
+                    <Route path='/company/:name' element={<PublicRoute><CompanyPage /></PublicRoute>} />
 
                     <Route path='/posted-job/:id' element={<ProtectedRoute allowedRoles={["EMPLOYER"]}><PostedJobPage /></ProtectedRoute>} />
 
-                    <Route path='/jobs/:id' element={<JobDescriptionPage />} />
+                    <Route path='/jobs/:id' element={<PublicRoute><JobDescriptionPage /></PublicRoute>} />
 
                     <Route path='/job-history' element={<ProtectedRoute allowedRoles={["APPLICANT"]}><JobHistoryPage /></ProtectedRoute>} />
 
@@ -85,9 +85,9 @@ export const AppRoutes = () => {
 
                     <Route path='/profile' element={<ProtectedRoute allowedRoles={["EMPLOYER","TALENT"]}><ProfilePage /></ProtectedRoute>} />
 
-                    <Route path='/talent-profile/:id' element={<TalentProfile />} />
+                    <Route path='/talent-profile/:id' element={<PublicRoute><TalentProfile /></PublicRoute>} />
 
-                    <Route path='*' element={<HomePage />} />
+                    <Route path='*' element={<PublicRoute><HomePage /></PublicRoute>} />
                 </Routes>
                 <Footer />
             </div>
