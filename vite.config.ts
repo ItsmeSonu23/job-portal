@@ -2,17 +2,15 @@ import { defineConfig } from 'vite';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
+  plugins: [tailwindcss()],
   build: {
     outDir: 'dist',
     chunkSizeWarningLimit: 10000,
     rollupOptions: {
-      external: ['@mantine/form'], // Prevent bundling Mantine if it's external
+      external: ['@mantine/dates', '@mantine/form', '@mantine/tiptap', '@mantine/core', '@mantine/carousel'],
     },
   },
   optimizeDeps: {
-    include: ['@mantine/form'],
+    include: ['@mantine/core', '@mantine/carousel', '@mantine/dates', '@mantine/form', '@mantine/tiptap'],
   },
 });
