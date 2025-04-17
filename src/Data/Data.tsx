@@ -1,4 +1,4 @@
-import { IconBriefcase, IconCalendar, IconMapPin, IconPremiumRights, IconRecharging, IconSearch, IconUser } from "@tabler/icons-react";
+import { IconBriefcase, IconCalendar, IconMapPin, IconPremiumRights, IconRecharging, IconSearch } from "@tabler/icons-react";
 
 export const companies = ["Google", "Amazon", "Figma", "Netflix", "Meta", "Microsoft", "Pinterest", "Spotify", "Walmart"]
 
