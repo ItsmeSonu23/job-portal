@@ -52,8 +52,7 @@ import { PostedJobPage } from "./PostedJobPage"
 import { PostJobPage } from "./PostJobPage"
 import { ProfilePage } from "./ProfilePage"
 import { SignupPage } from "./SignupPage"
-import { TalentProfile } from "./TalentProfile"
-import { ProtectedRoute } from "../Services/ProtectedRoute"  
+import { TalentProfile } from "./TalentProfile" 
 export const AppRoutes = () => {
 
     return (
