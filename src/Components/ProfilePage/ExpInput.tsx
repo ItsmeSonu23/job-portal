@@ -139,10 +139,10 @@ export const ExpInput = (props: any) => {
         <div className="flex flex-col gap-3">
             <div className="text-lg font-semibold">{props.add ? "Add Expirience" : "Edit Expirience"}</div>
             <div className="">
-                <SelectInputt form={form} name="title" {...profileFeild[0]} />
-                <SelectInputt form={form} name="company" {...profileFeild[1]} />
+                <SelectInputt form={form} name="title" {...profileFeild[1]} />
+                <SelectInputt form={form} name="company" {...profileFeild[2]} />
             </div>
-            <SelectInputt form={form} name="location"  {...profileFeild[2]} />
+            <SelectInputt form={form} name="location"  {...profileFeild[3]} />
 
             <Textarea {...form.getInputProps("description")} withAsterisk label="Summary" autosize minRows={3} placeholder="Enter summary" />
 
