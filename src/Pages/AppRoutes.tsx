@@ -68,7 +68,7 @@ export const AppRoutes = () => {
 
                     <Route path='/company/:name' element={<CompanyPage />} />
 
-                    <Route path='/posted-job/:id' element={<ProtectedRoute allowedRoles={["EMPLOYER"]}><PostedJobPage /></ProtectedRoute>} />
+                    <Route path='/posted-job/:id' element={<PostedJobPage/>} />
 
                     <Route path='/jobs/:id' element={<JobDescriptionPage />} />
 
